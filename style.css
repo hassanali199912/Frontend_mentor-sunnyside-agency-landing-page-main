@@ -26,6 +26,9 @@
     --Fraunces: 'Fraunces', serif;
     --Barlow: 'Barlow', sans-serif;
 
+    /* المسافة الداخلية للكروت والالوان */
+    --padding: 10rem;
+    --affter-color: #fff
 }
 
 * {
@@ -219,10 +222,225 @@ body {
 
 /*#endregion Header*/
 
+/*#region Section 1*/
+.text-card {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding-inline: 7rem;
+}
+
+.text-card h2 {
+    font-size: 3.8rem;
+    color: var(--Very-dark-desaturated-blue);
+
+    font-family: var(--Fraunces);
+    padding-bottom: 1rem;
+}
+
+.text-card p {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--Dark-grayish-blue);
+    line-height: 1.6;
+}
+
+.text-card a {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--Fraunces);
+    color: var(--Very-dark-desaturated-blue);
+    text-decoration: none;
+    gap: 1rem;
+    margin: 2rem 0 0 1rem;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.text-card a::after {
+    position: relative;
+    content: "";
+    display: block;
+    width: 190px;
+    height: 12px;
+    background-color: var(--affter-color);
+    transition: width 0.3s ease-in-out;
+    transform: translate(-5%, -90%);
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.text-card a:hover::after {
+    opacity: 1;
+}
+
+picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.section-1 picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*#endregion Section 1*/
+
+/*#region Section 2*/
+
+.card {
+    position: relative;
+}
+
+.card .card-text {
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.card .card-text h4 {
+    font-size: 2rem;
+    font-family: var(--Fraunces);
+    padding: 0 0 0.8rem 0;
+}
+
+.card .card-text p {
+    width: 60%;
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.section-2 picture img {
+    width: 100%;
+    /* height: 100%; */
+    height: 1000px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/*#endregion Section 2*/
+
+
+/*#region Section-3*/
+
+
+.section-3 {
+    padding: 3rem 0;
+    background-color: var(--White);
+}
+
+.section-3 .section-title {
+    text-align: center;
+    padding: 2rem 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: var(--Fraunces);
+    color: var(--Grayish-blue);
+}
+
+.section-3 .row .col-4 .card {
+    text-align: center;
+    padding: 3rem;
+}
+
+.section-3 .row .col-4 .card img {
+    width: 20%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.section-3 .row .col-4 .card p {
+    font-size: 1.2rem;
+    padding: 1.5rem 0 3rem;
+    line-height: 1.6;
+}
+
+.section-3 .row .col-4 .card h5 {
+    font-size: 1rem;
+}
+
+.section-3 .row .col-4 .card h6 {
+    font-size: 0.8rem;
+    padding: 0.2rem 0 0 0;
+    color: var(--Grayish-blue);
+}
+
+
+/*#endregion Section-3*/
+
+/*#region Section-4*/
+.section-4 .col-3 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*#endregion Section-4*/
+
+/*#region Footer*/
+.footer {
+    background-color: var(--Dark-moderate-cyan-footer);
+    padding: 5rem 0;
+}
+
+.footer .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer .footer-content .footer-img path {
+    fill: var(--Dark-desaturated-cyan-graphic-design-text) !important;
+}
+
+.footer .footer-content ul {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.footer .footer-content ul li a {
+    color: var(--Dark-desaturated-cyan-graphic-design-text);
+    text-decoration: none;
+}
+
+.footer .footer-content ul li a:hover {
+    color: var(--White);
+}
+
+.footer .footer-content ul li a:hover svg path {
+    fill: var(--White) !important;
+
+}
+
+
+
+
+/*#endregion Footer*/
+
+
 
 
 /*#region Media mobile 375px*/
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+        gap: 0 !important;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+
+    /*#region Header*/
     .custom-header {
         background-image: url(images/mobile/image-header.jpg);
 
@@ -245,7 +463,7 @@ body {
         gap: 1rem;
         padding: 2rem 0;
     }
-    
+
     .links.close {
         transform: translateX(110%);
     }
@@ -269,13 +487,96 @@ body {
         color: var(--Grayish-blue);
         font-size: 1rem;
     }
-    .hero h1{
+
+    .hero h1 {
         text-align: center;
         font-size: 2.5rem;
     }
-    .hero img{
+
+    .hero img {
         margin-top: 3rem !important;
     }
+
+    /*#endregion Header*/
+
+    /*#region Section 1*/
+    .section-1 .row:first-child .col-6:last-child {
+        order: 1
+    }
+
+    .section-1 .row:first-child .col-6:first-child {
+        order: 2
+    }
+
+
+
+    .text-card {
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+        text-align: center;
+
+    }
+
+    .text-card h2 {
+        font-size: 2rem;
+    }
+
+    .text-card p {
+        font-size: 1.2rem;
+    }
+
+    .text-card a::after {
+
+        display: none;
+
+    }
+
+
+    /*#endregion Section 1*/
+
+    /*#region Section 2*/
+
+
+
+    .section-2 picture {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .section-2 picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: top;
+    }
+
+    .card .card-text {
+        top: 55%;
+    }
+
+    .card .card-text h4 {
+        font-size: 1.5rem;
+        font-family: var(--Fraunces);
+        padding: 0 0 0.8rem 0;
+    }
+
+    .card .card-text p {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    /*#endregion Section 2*/
+
+    /*#region Footer */
+    .footer .footer-content {
+        gap: 3rem !important;
+    }
+
+    /*#endregion Footer */
+
+
+
 
 }
 
